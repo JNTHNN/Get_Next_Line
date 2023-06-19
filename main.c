@@ -6,15 +6,13 @@ int	main(void)
 {
 	int		fd;
 	char	*line;
+	char	*line2;
 
 	fd = open("ok.txt", O_RDONLY);
-	while (fd)
-	{
-		line = get_next_line(fd);
-//		if (ft_check(line) == 1)
-//		break;
-		printf("%s", line);
-		free(line);
-	}
+	line = get_next_line(fd);
+	line2 = get_next_line(fd);
+	printf("%s%s", line, line2);
+	free(line);
+	free(line2);
 	return (0);
 }
