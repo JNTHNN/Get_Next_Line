@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:21 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/20 15:27:59 by jgasparo         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:02:10 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_newline(int fd, char *s)
 	while (line > 0)
 	{
 		line = read(fd, temp, BUFFER_SIZE);
+		if (line <= 0)
+			break ;
 		temp[line] = '\0';
 		s = ft_strjoin(s, temp);
 		if (ft_strchr(temp, '\n'))
