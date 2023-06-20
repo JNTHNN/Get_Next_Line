@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:45 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/19 20:19:23 by jgasparo         ###   ########.fr       */
+/*   Updated: 2023/06/20 10:42:23 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 
 char	*get_next_line(int fd);
-char	*ft_line(int fd, char *s);
+char	*ft_newline(int fd, char *s);
 int		ft_nextline(char *s);
 char	*ft_nextstr(char *s);
 size_t	ft_strlen(const char *s);
