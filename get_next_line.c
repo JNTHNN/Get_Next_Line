@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:21 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/20 17:02:10 by jgasparo         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:06:55 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*get_next_line(int fd)
 		line = ft_newline(fd, output);
 		output = ft_substr(line, ft_nextline(line) + 1, ft_strlen(line) - ft_nextline(line) - 1);
 		line = ft_nextstr(line);
-		if (output && !output[0] && !line[0])
+		if (line && output && !output[0] && !line[0])
 		{
 			free(line);
 			free(output);

@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:49 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/20 16:41:23 by jgasparo         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:54:10 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-		return (ft_strdup(""));
+		return (NULL);
 	if (s_len - start < len)
 		len = s_len - start;
 	substr = malloc(sizeof(char) * (len + 1));
