@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:49 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/21 15:54:10 by jgasparo         ###   ########.fr       */
+/*   Updated: 2023/06/22 17:03:56 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start >= s_len)
 		return (NULL);
 	if (s_len - start < len)
-		len = s_len - start;
+		len = s_len;
 	substr = malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);
 	i = 0;
-	while (s[start] && i < len)
+	if (start > s_len)
+	{
+		substr[0] = '\0';
+		return (substr);
+	}
+	while (s[start] && s_len)
 	{
 		substr[i] = s[start];
 		i++;

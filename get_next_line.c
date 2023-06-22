@@ -6,14 +6,14 @@
 /*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:21 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/21 18:06:55 by jgasparo         ###   ########.fr       */
+/*   Updated: 2023/06/22 18:46:42 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
 
-char	*ft_newline(int fd, char *s)
+char	*ft_read_until_nl(int fd, char *s)
 {
 	int		line;
 	char	*temp;
@@ -21,8 +21,7 @@ char	*ft_newline(int fd, char *s)
 	temp = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!temp)
 		return (NULL);
-	line = 1;
-	while (line > 0)
+	while (1)
 	{
 		line = read(fd, temp, BUFFER_SIZE);
 		if (line <= 0)
@@ -36,7 +35,7 @@ char	*ft_newline(int fd, char *s)
 	return (s);
 }
 
-int	ft_nextline(char *s)
+int	ft_find_nl(char *s)
 {
 	int	i;
 
@@ -46,18 +45,18 @@ int	ft_nextline(char *s)
 	return (i);
 }
 
-char	*ft_nextstr(char *s)
+char	*ft_extract_nstr(char *s)
 {
 	char	*str;
 	int		i;
 
 	if (!s)
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_nextline(s) + 2));
+	str = malloc(sizeof(char) * (ft_find_nl(s) + 2));
 	if (!str)
 		return (NULL);
 	i = -1;
-	while (++i <= ft_nextline(s))
+	while (++i <= ft_find_nl(s))
 		str[i] = s[i];
 	str[i] = '\0';
 	free(s);
@@ -73,10 +72,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	else
 	{
-		line = ft_newline(fd, output);
-		output = ft_substr(line, ft_nextline(line) + 1, ft_strlen(line) - ft_nextline(line) - 1);
-		line = ft_nextstr(line);
-		if (line && output && !output[0] && !line[0])
+		line = ft_read_until_nl(fd, output);
+		output = ft_substr(line, ft_find_nl(line) + 1, ft_strlen(line) - ft_find_nl(line) - 1);
+		line = ft_extract_nstr(line);
+		if (output && !output[0] && !line[0])
 		{
 			free(line);
 			free(output);

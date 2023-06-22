@@ -1,6 +1,2 @@
+aaaaaaaaaaaaaawdwwwdwdwdwdw
 
-0123456789
-50515012
-1. Afficher une ligne 
-2. Definir quand la ligne est terminée (\n ou \0)
-3. Si le cas avant est true, Afficher la ligne d'après
