@@ -6,12 +6,11 @@
 /*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:21 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/22 18:46:42 by jgasparo         ###   ########.fr       */
+/*   Updated: 2023/06/27 13:56:38 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 char	*ft_read_until_nl(int fd, char *s)
 {
@@ -73,7 +72,8 @@ char	*get_next_line(int fd)
 	else
 	{
 		line = ft_read_until_nl(fd, output);
-		output = ft_substr(line, ft_find_nl(line) + 1, ft_strlen(line) - ft_find_nl(line) - 1);
+		output = ft_substr(line, ft_find_nl(line) + 1, \
+		ft_strlen(line) - ft_find_nl(line) - 1);
 		line = ft_extract_nstr(line);
 		if (output && !output[0] && !line[0])
 		{

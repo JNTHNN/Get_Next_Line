@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:49 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/22 17:03:56 by jgasparo         ###   ########.fr       */
+/*   Updated: 2023/06/27 13:34:15 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (substr);
 	}
 	while (s[start] && s_len)
-	{
-		substr[i] = s[start];
-		i++;
-		start++;
-	}
+		substr[i++] = s[start++];
 	substr[i] = '\0';
 	return (substr);
 }

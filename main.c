@@ -53,18 +53,26 @@
 int	main(void)
 {
 	int	fd;
+	int	fd2;
+	int	fd3;
 	char	*line;
 	
-	fd = open("ok.txt", O_RDONLY);
+	fd = open("get_next_line.c", O_RDONLY);
+	fd2 = open("get_next_line_utils.c", O_RDONLY);
+	fd3 = open("get_next_line.h", O_RDONLY);
+	printf("%d\n", fd);
 	while(1)
 	{
-		line = get_next_line(fd);
-		printf("%d \n%s", fd, line);	
+		line = get_next_line(fd);	
 		if (line == NULL)
 		{
 			printf("%d \n%s", fd, line);	
 			break;
 		}
+		printf("%s", line);
+		line = get_next_line(fd2);
+		printf("%s", line);
+		line = get_next_line(fd3);
 		printf("%s", line);
 		free(line);
 	}
