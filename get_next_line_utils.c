@@ -6,7 +6,7 @@
 /*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:49 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/27 13:34:15 by jgasparo         ###   ########.fr       */
+/*   Updated: 2023/06/30 14:22:19 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*str;
 
+	if (!s)
+		return (NULL);
 	str = (char *)s;
 	while (*str != (char)c)
 	{
@@ -41,6 +43,8 @@ char	*ft_strdup(const char *s1)
 	char	*dup;
 	int		i;
 
+	if (!s1)
+		return (NULL);
 	i = 0;
 	dup = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
 	if (!dup)
