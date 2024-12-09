@@ -1,6 +1,5 @@
 # Get Next Line
 
-## 📝 Description  
 **Get_next_line** est une fonction capable de lire une ligne complète à partir d’un fichier ou de l’entrée standard, quel que soit le nombre d’appels nécessaires à `read()`. Elle utilise un tampon dynamique pour gérer efficacement les lectures.
 
 ---
