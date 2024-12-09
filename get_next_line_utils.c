@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:49 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/30 14:22:19 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/09 13:52:01 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*str;
 
-	if (!s)
-		return (NULL);
 	str = (char *)s;
 	while (*str != (char)c)
 	{
@@ -43,16 +41,14 @@ char	*ft_strdup(const char *s1)
 	char	*dup;
 	int		i;
 
-	if (!s1)
-		return (NULL);
 	i = 0;
 	dup = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
 	if (!dup)
 		return (NULL);
-	while (s1[i] != '\0')
+	while (s1[i])
 	{
-			dup[i] = s1[i];
-			i++;
+		dup[i] = s1[i];
+		i++;
 	}
 	dup[i] = '\0';
 	return (dup);

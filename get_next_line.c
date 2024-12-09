@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgasparo <jgasparo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jgasparo <jgasparo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:08:21 by jgasparo          #+#    #+#             */
-/*   Updated: 2023/06/27 13:56:38 by jgasparo         ###   ########.fr       */
+/*   Updated: 2024/12/09 13:52:42 by jgasparo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_read_until_nl(int fd, char *s)
+char	*ft_read_until_nl(int fd, char *output)
 {
 	int		line;
 	char	*temp;
@@ -26,12 +26,12 @@ char	*ft_read_until_nl(int fd, char *s)
 		if (line <= 0)
 			break ;
 		temp[line] = '\0';
-		s = ft_strjoin(s, temp);
+		output = ft_strjoin(output, temp);
 		if (ft_strchr(temp, '\n'))
 			break ;
 	}
 	free(temp);
-	return (s);
+	return (output);
 }
 
 int	ft_find_nl(char *s)
@@ -72,8 +72,8 @@ char	*get_next_line(int fd)
 	else
 	{
 		line = ft_read_until_nl(fd, output);
-		output = ft_substr(line, ft_find_nl(line) + 1, \
-		ft_strlen(line) - ft_find_nl(line) - 1);
+		output = ft_substr(line, ft_find_nl(line) + 1,
+				ft_strlen(line) - ft_find_nl(line) - 1);
 		line = ft_extract_nstr(line);
 		if (output && !output[0] && !line[0])
 		{
